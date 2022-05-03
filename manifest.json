@@ -1,0 +1,54 @@
+{
+  "name": "Highlight some phrases",
+  "description": "Hightlight some pre defined text after page loads",
+  "version": "0.1",
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "activeTab",
+    "storage",
+    "*://shopee.co.th/*"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://old-shopee.co.th/checkout-page/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://old-shopee.co.th/product/*"
+      ],
+      "js": [
+        "content-product.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://shopee.co.th/m/coin-cashback*"
+      ],
+      "js": [
+        "content-coin-cashback.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://shop.line.me/*/checkout/*"
+      ],
+      "js": [
+        "lineshopping.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 2
+}
